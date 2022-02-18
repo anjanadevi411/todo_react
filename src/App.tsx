@@ -1,26 +1,29 @@
+import React from "react";
 import "./App.css";
 import TodoForm from "./TodoForm";
 import { useState } from "react";
 import Todo from "./Todo";
+import { todoArr } from "./Todotypes";
 
 function App() {
-  const [todos, setTodos] = useState([]);
+ 
+  const [todos, setTodos] = useState<todoArr[]>([]);
 
-  const completed = (index) => {
-    const newTodos = [...todos];
+  const completed = (index:number) => {
+    const newTodos:todoArr[] = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
   };
 
-  const remove = (index) => {
-    const newTodos = [...todos];
+  const remove = (index:number) => {
+    const newTodos:todoArr[] = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
 
-  const addTodo = (text) => {
+  const addTodo = (text:string): void => {
     console.log("new list", text);
-    const newTodos = [...todos, { text }];
+    const newTodos:any= [...todos, { text }];
     setTodos(newTodos);
   };
 

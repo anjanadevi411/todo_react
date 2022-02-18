@@ -1,20 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 
-function TodoForm({ addTodo }) {
-  const [value, setValue] = useState("");
+const TodoForm=({ addTodo}:{addTodo:(text:string)=>void}):JSX.Element=> {
+  const [value, setValue] = useState<string>("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event:ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(value);
+   // console.log(value);
     if (!value) return;
     addTodo(value);
     setValue("");
   };
-  const handleChange = (event) => {
+  const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
+   // console.log(event.target.value)
     setValue(event.target.value);
   };
   return (
-    <div>
+    
       <form className="input-group" onSubmit={handleSubmit}>
         <input
           className="form-control"
@@ -24,7 +25,7 @@ function TodoForm({ addTodo }) {
           placeholder="Enter Todo..."
         ></input>
       </form>
-    </div>
+    
   );
 }
 
