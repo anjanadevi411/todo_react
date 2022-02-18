@@ -1,18 +1,16 @@
 import React, { useState, ChangeEvent } from "react";
 
 const TodoForm=({ addTodo}:{addTodo:(text:string)=>void}):JSX.Element=> {
-  const [value, setValue] = useState<string>("");
+  const [todovalue, setTodovalue] = useState<string>("");
 
   const handleSubmit = (event:ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-   // console.log(value);
-    if (!value) return;
-    addTodo(value);
-    setValue("");
+    if (!todovalue) return;
+    addTodo(todovalue);
+    setTodovalue("");
   };
   const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
-   // console.log(event.target.value)
-    setValue(event.target.value);
+   setTodovalue(event.target.value);
   };
   return (
     
@@ -20,7 +18,7 @@ const TodoForm=({ addTodo}:{addTodo:(text:string)=>void}):JSX.Element=> {
         <input
           className="form-control"
           onChange={handleChange}
-          value={value}
+          value={todovalue}
           type="text"
           placeholder="Enter Todo..."
         ></input>

@@ -22,7 +22,7 @@ function App() {
   };
 
   const addTodo = (text:string): void => {
-    console.log("new list", text);
+    //console.log("new list", text);
     const newTodos:any= [...todos, { text }];
     setTodos(newTodos);
   };
