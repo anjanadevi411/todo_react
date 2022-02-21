@@ -40,7 +40,9 @@ function App() {
             remove={remove}
           />
         ))}
-        <TodoForm addTodo={addTodo} />
+        <TodoForm 
+        addTodo={addTodo}
+         />
       </div>
     </div>
   );

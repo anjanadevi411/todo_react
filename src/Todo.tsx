@@ -1,7 +1,8 @@
 import React from "react";
 import { Props } from "./Todotypes";
 
-const Todo: React.FC<Props> = ({ todo, index, completed,remove}):JSX.Element =>{
+// const Todo: React.FC<Props> = ({ todo, index, completed,remove}):JSX.Element =>{
+  const Todo = ({ todo, index, completed,remove}:Props):JSX.Element =>{
   return (
     <ul className="list-group">
       <li
